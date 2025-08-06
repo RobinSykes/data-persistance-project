@@ -23,8 +23,26 @@ public class MainManager : MonoBehaviour
 
     [SerializeField] public static string inputTextName;
 
+    public static MainManager Instance;
 
-    // Start is called before the first frame update
+
+    /*public void ResetHighScore()
+    {
+        highScore = 0;
+        highScorer = "None";
+        inputTextName = "";
+
+        // Delete the save file
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+
+        // Update UI
+        bestScoreText.text = $"Best score : {highScorer} with {highScore}";
+    }*/
+
     void Start()
     {
         const float step = 0.6f;
@@ -76,6 +94,11 @@ public class MainManager : MonoBehaviour
             highScorer = inputTextName;
             SaveHighScore();
         }
+        /*if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetHighScore();
+        }*/
+
     }
 
     void AddPoint(int point)
